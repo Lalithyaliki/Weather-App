@@ -19,7 +19,12 @@ body .global-text {
 img {
   width: 30%;
   height: auto;
-  border-radius: 100%;
+  border-radius: 50%;
+}
+@media (min-width: 768px) {
+  img {
+    width: 15%;
+  }
 }
 
 .pop {
@@ -233,6 +238,11 @@ img {
   transition: all 0.3s ease-in-out;
   overflow: auto;
   scrollbar-width: none;
+}
+@media (min-width: 768px) {
+  .container .search .search-history {
+    width: 27%;
+  }
 }
 .container .search .search-history .history {
   display: flex;

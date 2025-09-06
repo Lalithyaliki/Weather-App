@@ -24,7 +24,11 @@ body {
 img {
     width: 30%;
     height: auto;
-    border-radius: 100%;
+    border-radius: 50%;
+
+    @include media("md"){
+        width:15%;
+    }
 }
 
 .pop {
@@ -272,6 +276,10 @@ img {
             transition: all .3s ease-in-out;
             overflow: auto;
             scrollbar-width: none;
+
+            @include media("md"){
+                width:27%;
+            }
 
             .history {
                 display: flex;
