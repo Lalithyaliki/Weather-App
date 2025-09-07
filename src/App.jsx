@@ -16,6 +16,7 @@ function App() {
 
   const [city, setcity] = useState('');
   const [history, sethistory] = useState([]);
+  const [weatherDataMap, setWeatherDataMap] = useState({}); 
   const [showsearch, setShowSearch] = useState(false);
   const [error, seterror] = useState("");
 
@@ -37,6 +38,7 @@ function App() {
 
       const getWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f63770e8dc91b47dd79e9b768b4d4c98&units=metric`);
       setweather(getWeather.data);
+      setWeatherDataMap((prev) => ({ ...prev , [cityName]:getWeather.data}));
       seterror("");
       setcity("");
       if (!history.includes(cityName)) {
@@ -48,24 +50,23 @@ function App() {
         setsearchpopup(false);
       }, 3000);
     }
+
     catch (e) {
       setcity("");
       setweather(null);
       seterror(` No City 
         Found - ${cityName}`);
-
     }
 
   }
-
-  const handlelogout = () => {
-    setlogoutpopup(true);
+  const handlesearch = (selectedcity) => {
+    setShowSearch(false);
+    const citydata = weatherDataMap[selectedcity];
+    if(citydata){
+      setweather(citydata);
+    }
   }
 
-  const logout = () => {
-    setlogoutpopup(false);
-    setlogout(false);
-  }
   const removecity = (citytoremove) => {
     sethistory(history.filter((c) => c !== citytoremove));
   };
@@ -85,7 +86,16 @@ function App() {
 
     setpopup(false);
 
-  };
+  }
+
+  const handlelogout = () => {
+    setlogoutpopup(true);
+  }
+
+  const logout = () => {
+    setlogoutpopup(false);
+    setlogout(false);
+  }
 
   return (
     <>
@@ -151,8 +161,8 @@ function App() {
             {history.length === 0 ? <p className='no-searched-cities global-text'>No search history</p> :
               <ul className='searched-cities global-text'>
                 {history.map((cityName, index) => (
-                  <li className='cities' key={index}>{cityName}
-                    <button onClick={() => removecity(cityName)} className='btn'>x</button>
+                  <li className='cities' onClick={() => handlesearch(cityName)} key={index}>{cityName}
+                    <button onClick={(e) => { e.stopPropagation(); removecity(cityName); }} className='btn'>x</button>
                   </li>
                 ))}
               </ul>}
