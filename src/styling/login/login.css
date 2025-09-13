@@ -45,6 +45,7 @@ body {
   .form {
     top: 30%;
     left: 13%;
+    bottom: auto;
     width: 75%;
     height: 340px;
     border-radius: 20px;
