@@ -1,7 +1,5 @@
 @import './variables';
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
-
 * {
     margin: 0;
     padding: 0;
@@ -26,8 +24,8 @@ img {
     height: auto;
     border-radius: 50%;
 
-    @include media("md"){
-        width:15%;
+    @include media("md") {
+        width: 15%;
     }
 }
 
@@ -55,7 +53,7 @@ img {
     .logout-confirm {
         box-shadow: 0px 0px 10px grey;
         position: relative;
-        padding:15px;
+        padding: 15px;
 
         .back-from-logout {
             position: absolute;
@@ -69,25 +67,27 @@ img {
             padding: 5px;
 
         }
+
         h2 {
             text-align: center;
         }
+
         p {
             color: white;
-            padding:10px 10px 15px;
+            padding: 10px 10px 15px;
         }
-        
+
         .btn {
             display: flex;
-            justify-content:center;
-            gap:25px;
+            justify-content: center;
+            gap: 25px;
 
 
             button {
-                padding:5px 10px;
+                padding: 5px 10px;
                 border: none;
                 background-color: red;
-                color:white;
+                color: white;
                 font-size: 20px;
                 text-transform: capitalize;
                 cursor: pointer;
@@ -124,20 +124,13 @@ img {
             margin-left: 8px;
 
             span {
-                animation-name: blink;
-                animation-duration: 1.4s;
-                animation-iteration-count: infinite;
-                animation-fill-mode: both;
+
+                animation: blink 1.4s infinite both;
                 font-weight: 700;
                 font-size: 1.5rem;
                 color: #ff6f61;
                 opacity: 0.3;
                 margin-left: 3px;
-                animation-name: blink;
-                animation-duration: 1.4s;
-                animation-iteration-count: infinite;
-                animation-fill-mode: both;
-
 
                 &:nth-child(1) {
                     animation-delay: 0s;
@@ -183,18 +176,26 @@ img {
     .nav {
         display: flex;
         justify-content: space-between;
-        padding: 15px;
+        padding: 13px;
         box-shadow: 0px 0px 10px grey;
+
+        @include media("sm") {
+            padding: 15px;
+        }
 
         a {
             display: flex;
             align-items: center;
             gap: 7px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 15px;
             font-weight: 1000;
             text-transform: capitalize;
             letter-spacing: .5px;
+
+            @include media("sm") {
+                font-size: 17px;
+            }
 
             img {
                 width: 30px;
@@ -267,7 +268,7 @@ img {
             top: -100%;
             opacity: 0;
             right: 0;
-            width: 53%;
+            width: 70%;
             height: 100vh;
             padding: 40px 25px 10px;
             background-color: black;
@@ -277,8 +278,12 @@ img {
             overflow: auto;
             scrollbar-width: none;
 
-            @include media("md"){
-                width:27%;
+            @include media("sm") {
+                width: 53%;
+            }
+
+            @include media("md") {
+                width: 35%;
             }
 
             .history {
@@ -327,7 +332,10 @@ img {
                     &:hover {
 
                         .btn {
-                            display: block;
+
+                            @include media("sm") {
+                                display: block;
+                            }
                         }
                     }
 
@@ -336,8 +344,12 @@ img {
                         border: none;
                         color: #ff6f61;
                         font-size: 20px;
-                        display: none;
+                        display: block;
                         cursor: pointer;
+
+                        @include media("sm") {
+                            display: none;
+                        }
                     }
                 }
             }
@@ -397,22 +409,39 @@ img {
         box-shadow: 0px 0px 10px grey;
         border-radius: 20px;
         display: flex;
-        gap: 20px;
+        flex-direction: column;
         padding: 20px;
         color: white;
+        text-align: center;
+
+        @include media('sm') {
+            flex-direction: row;
+            gap: 15px;
+        }
 
         @include media('md') {
             width: 70%;
         }
 
         .weather-img {
-            flex-basis: 30%;
+            flex-basis: 10%;
             line-height: 1.4px;
 
             img {
-                width: 100%;
-                height: 100%;
+                width: 55%;
+                height: 55%;
                 object-fit: contain;
+            }
+
+            @include media("sm") {
+                flex-basis: 30%;
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+
+                }
             }
         }
 
@@ -423,21 +452,37 @@ img {
 
             h2 {
                 text-align: center;
-                border-bottom: 2px solid #ff6f61;
                 margin-bottom: 15px;
                 padding: 10px;
+                position: relative;
 
+                &::before {
+                    content: "";
+                    position: absolute;
+                    bottom: 1px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 95%;
+                    height: 1px;
+                    background-color: #ff6f61;
+
+                    @include media("lg"){
+                        width:80%;
+                    }
+                }
             }
 
             p {
                 text-transform: capitalize;
                 padding-bottom: 5px;
-                font-size: 17px;
+                font-size: 15px;
+
+                @include media('sm') {
+                    font-size: 17px;
+                }
 
                 @include media('md') {
-                    font-size: 20px;
-                    font-weight: 700;
-                    padding-left: 150px;
+                    font-size: 18px;
                 }
 
                 span {

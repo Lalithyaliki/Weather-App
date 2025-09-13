@@ -46,25 +46,22 @@ body {
     }
 
     @media screen and (min-width:768px) {
-        top: 20%;
-        left: 23%;
-        width: 55%;
-        height: 370px;
+        top: 30%;
+        left: 13%;
+        width: 75%;
+        height: 340px;
         border-radius: 20px;
 
     }
 
     .box {
-
         display: flex;
         flex-direction: row;
-        gap: 15px;
+        gap:20px;
         justify-content: center;
 
         @media screen and (min-width:768px) {
             padding: 25px;
-            justify-content: space-between;
-
         }
 
         .image {
@@ -72,7 +69,9 @@ body {
 
             @media screen and (min-width:768px) {
                 display: block;
-
+                flex-basis: 50%;
+                text-align: center;
+    
                 img {
                     width: 150px;
                     height: 150px;
@@ -92,6 +91,7 @@ body {
                     text-transform: capitalize;
                     letter-spacing: 1px;
                     line-height: 1.4;
+                    font-size: 17px;
 
                 }
 
@@ -104,6 +104,7 @@ body {
 
             @media screen and (min-width:768px) {
                 padding: 0px;
+                flex-basis: 50%;
 
             }
 
@@ -166,15 +167,20 @@ body {
 
                 .data {
 
-                    width: 400px;
+                    width: 300px;
                     display: flex;
                     flex-direction: column;
                     gap: 15px;
                     animation: fade-in .8s ease forwards;
 
+                    @media screen and (min-width:576px){
+                        width:400px;
+                    }
+
                     @media screen and (min-width:768px) {
                         gap: 20px;
-                        width: 330px;
+                        width: 300px;
+                        margin:0 auto;
                     }
 
                     @keyframes fade-in {

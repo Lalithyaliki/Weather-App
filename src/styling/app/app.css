@@ -109,19 +109,12 @@ img {
   margin-left: 8px;
 }
 .loading-login .loading-message .dots span {
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
+  animation: blink 1.4s infinite both;
   font-weight: 700;
   font-size: 1.5rem;
   color: #ff6f61;
   opacity: 0.3;
   margin-left: 3px;
-  animation-name: blink;
-  animation-duration: 1.4s;
-  animation-iteration-count: infinite;
-  animation-fill-mode: both;
 }
 .loading-login .loading-message .dots span:nth-child(1) {
   animation-delay: 0s;
@@ -155,18 +148,28 @@ img {
 .header .nav {
   display: flex;
   justify-content: space-between;
-  padding: 15px;
+  padding: 13px;
   box-shadow: 0px 0px 10px grey;
+}
+@media (min-width: 576px) {
+  .header .nav {
+    padding: 15px;
+  }
 }
 .header .nav a {
   display: flex;
   align-items: center;
   gap: 7px;
   text-decoration: none;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 1000;
   text-transform: capitalize;
   letter-spacing: 0.5px;
+}
+@media (min-width: 576px) {
+  .header .nav a {
+    font-size: 17px;
+  }
 }
 .header .nav a img {
   width: 30px;
@@ -229,7 +232,7 @@ img {
   top: -100%;
   opacity: 0;
   right: 0;
-  width: 53%;
+  width: 70%;
   height: 100vh;
   padding: 40px 25px 10px;
   background-color: black;
@@ -239,9 +242,14 @@ img {
   overflow: auto;
   scrollbar-width: none;
 }
+@media (min-width: 576px) {
+  .container .search .search-history {
+    width: 53%;
+  }
+}
 @media (min-width: 768px) {
   .container .search .search-history {
-    width: 27%;
+    width: 35%;
   }
 }
 .container .search .search-history .history {
@@ -281,16 +289,23 @@ img {
   font-size: 20px;
   margin-bottom: 15px;
 }
-.container .search .search-history .searched-cities .cities:hover .btn {
-  display: block;
+@media (min-width: 576px) {
+  .container .search .search-history .searched-cities .cities:hover .btn {
+    display: block;
+  }
 }
 .container .search .search-history .searched-cities .cities .btn {
   background-color: transparent;
   border: none;
   color: #ff6f61;
   font-size: 20px;
-  display: none;
+  display: block;
   cursor: pointer;
+}
+@media (min-width: 576px) {
+  .container .search .search-history .searched-cities .cities .btn {
+    display: none;
+  }
 }
 .container .search .show-history {
   opacity: 1;
@@ -338,9 +353,16 @@ img {
   box-shadow: 0px 0px 10px grey;
   border-radius: 20px;
   display: flex;
-  gap: 20px;
+  flex-direction: column;
   padding: 20px;
   color: white;
+  text-align: center;
+}
+@media (min-width: 576px) {
+  .container .weather {
+    flex-direction: row;
+    gap: 15px;
+  }
 }
 @media (min-width: 768px) {
   .container .weather {
@@ -348,14 +370,25 @@ img {
   }
 }
 .container .weather .weather-img {
-  flex-basis: 30%;
+  flex-basis: 10%;
   line-height: 1.4px;
 }
 .container .weather .weather-img img {
-  width: 100%;
-  height: 100%;
+  width: 55%;
+  height: 55%;
   -o-object-fit: contain;
      object-fit: contain;
+}
+@media (min-width: 576px) {
+  .container .weather .weather-img {
+    flex-basis: 30%;
+  }
+  .container .weather .weather-img img {
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+       object-fit: contain;
+  }
 }
 .container .weather .weather-details {
   flex: 1;
@@ -364,20 +397,38 @@ img {
 }
 .container .weather .weather-details h2 {
   text-align: center;
-  border-bottom: 2px solid #ff6f61;
   margin-bottom: 15px;
   padding: 10px;
+  position: relative;
+}
+.container .weather .weather-details h2::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95%;
+  height: 1px;
+  background-color: #ff6f61;
+}
+@media (min-width: 1024px) {
+  .container .weather .weather-details h2::before {
+    width: 80%;
+  }
 }
 .container .weather .weather-details p {
   text-transform: capitalize;
   padding-bottom: 5px;
-  font-size: 17px;
+  font-size: 15px;
+}
+@media (min-width: 576px) {
+  .container .weather .weather-details p {
+    font-size: 17px;
+  }
 }
 @media (min-width: 768px) {
   .container .weather .weather-details p {
-    font-size: 20px;
-    font-weight: 700;
-    padding-left: 150px;
+    font-size: 18px;
   }
 }
 .container .weather .weather-details p span {
