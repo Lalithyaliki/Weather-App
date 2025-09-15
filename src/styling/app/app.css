@@ -252,6 +252,11 @@ img {
     width: 35%;
   }
 }
+@media (min-width: 1024px) {
+  .container .search .search-history {
+    width: 25%;
+  }
+}
 .container .search .search-history .history {
   display: flex;
   justify-content: space-between;

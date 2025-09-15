@@ -4,6 +4,8 @@ import React, { useState } from 'react'
 
 function Login({ onclose, loginsuccess }) {
 
+        console.log("Login component mounted");
+
     const [change, setChange] = useState("login");
     const [password, setpassword] = useState(false);
 
