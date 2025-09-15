@@ -208,7 +208,7 @@ img {
 .container .search .icon i:hover {
   background-color: gray;
 }
-.container .search .overlay {
+.container .search .overlays {
   position: fixed;
   top: 0;
   left: 0;
@@ -222,7 +222,7 @@ img {
   z-index: 9998;
   pointer-events: none;
 }
-.container .search .overlay.show-overlay {
+.container .search .overlays.show-overlay {
   opacity: 1;
   pointer-events: all;
 }

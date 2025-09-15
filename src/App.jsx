@@ -16,7 +16,7 @@ function App() {
 
   const [city, setcity] = useState('');
   const [history, sethistory] = useState([]);
-  const [weatherDataMap, setWeatherDataMap] = useState({}); 
+  const [weatherDataMap, setWeatherDataMap] = useState({});
   const [showsearch, setShowSearch] = useState(false);
   const [error, seterror] = useState("");
 
@@ -38,7 +38,7 @@ function App() {
 
       const getWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f63770e8dc91b47dd79e9b768b4d4c98&units=metric`);
       setweather(getWeather.data);
-      setWeatherDataMap((prev) => ({ ...prev , [cityName]:getWeather.data}));
+      setWeatherDataMap((prev) => ({ ...prev, [cityName]: getWeather.data }));
       seterror("");
       setcity("");
       if (!history.includes(cityName)) {
@@ -62,7 +62,7 @@ function App() {
   const handlesearch = (selectedcity) => {
     setShowSearch(false);
     const citydata = weatherDataMap[selectedcity];
-    if(citydata){
+    if (citydata) {
       setweather(citydata);
     }
   }
@@ -149,9 +149,10 @@ function App() {
         <div className='search' >
           <div className='icon' onClick={() => setShowSearch(true)}><i className="bi bi-justify-right"></i></div>
 
-          <div className={showsearch ? "overlay show-overlay" : "overlay"}
+          <div className={showsearch ? "overlays show-overlay" : "overlays"}
             onClick={() => setShowSearch(false)}>
           </div>
+
           <div className={showsearch ? "search-history show-history" : "search-history"}>
             <div className='history global-text'>
               <h3>Search History</h3>

@@ -243,7 +243,7 @@ img {
             }
         }
 
-        .overlay {
+        .overlays {
             position: fixed;
             top: 0;
             left: 0;
@@ -257,7 +257,7 @@ img {
             pointer-events: none;
         }
 
-        .overlay.show-overlay {
+        .overlays.show-overlay {
             opacity: 1;
             pointer-events: all;
         }
