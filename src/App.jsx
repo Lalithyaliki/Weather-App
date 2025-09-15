@@ -141,24 +141,7 @@ function App() {
             <img src={image} alt='weather-image'></img>
             weather Application
           </a>
-          {/* <button type='button' onClick={() => showlogout ? handlelogout() : setlogin(true)}>{showlogout ? "logout" : "login/signup"}</button> */}
-
-          <button
-            type="button"
-            onClick={() => {
-              console.log("Button clicked. showlogout =", showlogout);
-              if (showlogout) {
-                console.log("Calling handlelogout()");
-                handlelogout();
-              } else {
-                console.log("Opening login popup");
-                setlogin(true);
-              }
-            }}
-          >
-            {showlogout ? "logout" : "login/signup"}
-          </button>
-
+          <button type='button' onClick={() => showlogout ? handlelogout() : setlogin(true)}>{showlogout ? "logout" : "login/signup"}</button>
         </div>
       </div>
 
