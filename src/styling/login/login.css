@@ -22,34 +22,46 @@ body {
 
 .form {
   position: fixed;
-  bottom: 0px;
   left: 0px;
   width: 100%;
   height: 310px;
   opacity: 0;
   background-color: black;
   box-shadow: 0px 0px 7px #32d583;
+  bottom: 0px;
   animation: slideUp 0.4s forwards ease-in-out;
   z-index: 1000;
 }
 @keyframes slideUp {
   0% {
     opacity: 0;
-    top: 49%;
+    transform: translateY(100%);
   }
   100% {
     opacity: 1;
-    top: 50%;
+    transform: translateY(0);
   }
 }
 @media screen and (min-width: 768px) {
   .form {
     top: 50%;
     left: 50%;
+    bottom: auto;
     transform: translate(-50%, -50%);
     width: auto;
     height: 340px;
     border-radius: 20px;
+    animation: popup 0.4s ease-in-out forwards;
+  }
+  @keyframes popup {
+    from {
+      opacity: 0;
+      transform: translate(-50%, -40%);
+    }
+    to {
+      opacity: 1;
+      transform: translate(-50%, -50%);
+    }
   }
 }
 .form .box {

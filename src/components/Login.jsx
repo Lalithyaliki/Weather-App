@@ -5,7 +5,7 @@ import React, { useState } from 'react'
 function Login({ onclose, loginsuccess }) {
 
     const [change, setChange] = useState("login");
-    const [password, setpassword] = useState("password");
+    const [password, setpassword] = useState(false);
 
     const handleclick = (e) => {
         e.preventDefault();
@@ -20,7 +20,7 @@ function Login({ onclose, loginsuccess }) {
 
     return (
         <>
-            <div className="overlay"></div>
+            <div className="overlay" onClick={onclose}></div>
 
             <div className='form'>
 
@@ -33,7 +33,7 @@ function Login({ onclose, loginsuccess }) {
                     </div>
 
                     <div className="login">
-                        <button type='submit' onClick={onclose} className='close'>x</button>
+                        <button type='button' onClick={onclose} className='close'>x</button>
 
                         <div className='signup'>
                             <button className={change === "login" ? "nav-links" : "nav-links links"} onClick={() => setChange("login")}>login</button>
@@ -48,9 +48,9 @@ function Login({ onclose, loginsuccess }) {
                                     placeholder='Enter email...' required></input>
 
                                 <div className='showdata'>
-                                    <input type={!password ? "text" : "password"} name='password' placeholder='Enter password...' required></input>
+                                    <input type={password ? "text" : "password"} name='password' placeholder='Enter password...' required></input>
                                     <button type="button" className="show" aria-label='Show password' onClick={() => setpassword((prev) => (!prev))} >{
-                                        !password ? "👁️" : "🙈"}
+                                        !password ? "🙈" : "👁️"}
                                     </button>
                                 </div>
 
