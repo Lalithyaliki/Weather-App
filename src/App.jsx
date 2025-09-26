@@ -141,7 +141,7 @@ function App() {
             <img src={image} alt='weather-image'></img>
             weather Application
           </a>
-          <button type='button' onClick={() => showlogout ? handlelogout() : setlogin(true)}>{showlogout ? "logout" : "login/signup"}</button>
+          <button type='button' onClick={() => showlogout ? handlelogout() :(setlogin(true),alert("login")) }>{showlogout ? "logout" : "login/signup"}</button>
         </div>
       </div>
 
