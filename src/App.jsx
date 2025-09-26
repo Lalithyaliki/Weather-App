@@ -137,14 +137,15 @@ function App() {
 
       <div className='header'>
         <div className='nav'>
+
           <a href='#' className='global-text'>
             <img src={image} alt='weather-image'></img>
             weather Application
           </a>
+
           <button type='button' onClick={() => showlogout ? handlelogout() : setlogin(true)
           }>{showlogout ? "logout" : "login/signup"}</button>
 
-          {showlogin && <p style={{ color: "white" }}>Button is rendered ✅</p> }
         </div>
       </div>
 
@@ -222,7 +223,7 @@ function App() {
         )}
       </div>
 
-      {/* {showlogin && <Login onclose={() => setlogin(false)} loginsuccess={handlesuccess} />} */}
+      {showlogin && <Login onclose={() => setlogin(false)} loginsuccess={handlesuccess} />}
     </>
   )
 }
