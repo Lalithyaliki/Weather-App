@@ -63,6 +63,11 @@ img {
 .open {
     opacity: 1;
     top: 8%;
+
+    @include media("sm"){
+        top:10%;
+    }
+    
 }
 
 .logout {
@@ -250,7 +255,7 @@ img {
         .icon {
             position: absolute;
             right:20px;
-            top:7px;
+            top:10px;
 
             i {
                 border-radius: 50%;
@@ -349,7 +354,7 @@ img {
 
             .searched-cities {
                 list-style-type: none;
-                margin-top: 60px;
+                margin-top: 62px;
 
                 .cities {
                     display: flex;
@@ -394,15 +399,15 @@ img {
 
     .input-search {
         text-align: center;
-        margin-top: 50px;
+        margin-top: 60px;
 
         input {
             width: 53%;
-            padding: 12px;
+            padding: 13px;
             border: 1px solid #32d583;
             background-color: black;
             margin-right: 5px;
-            font-size: 17px;
+            font-size: 16px;
             color: white;
             outline: none;
             letter-spacing: .5px;

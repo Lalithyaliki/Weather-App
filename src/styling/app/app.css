@@ -64,6 +64,11 @@ img {
   opacity: 1;
   top: 8%;
 }
+@media (min-width: 576px) {
+  .open {
+    top: 10%;
+  }
+}
 
 .logout .logout-confirm {
   box-shadow: 0px 0px 10px grey;
@@ -224,7 +229,7 @@ img {
 .container .search .icon {
   position: absolute;
   right: 20px;
-  top: 7px;
+  top: 10px;
 }
 .container .search .icon i {
   border-radius: 50%;
@@ -316,7 +321,7 @@ img {
 }
 .container .search .search-history .searched-cities {
   list-style-type: none;
-  margin-top: 60px;
+  margin-top: 62px;
 }
 .container .search .search-history .searched-cities .cities {
   display: flex;
@@ -350,15 +355,15 @@ img {
 }
 .container .input-search {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 60px;
 }
 .container .input-search input {
   width: 53%;
-  padding: 12px;
+  padding: 13px;
   border: 1px solid #32d583;
   background-color: black;
   margin-right: 5px;
-  font-size: 17px;
+  font-size: 16px;
   color: white;
   outline: none;
   letter-spacing: 0.5px;
