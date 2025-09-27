@@ -15,8 +15,9 @@ function App() {
   const [loadinglogin, setlodinglogin] = useState(false);
 
   const [city, setcity] = useState('');
-  const [history, sethistory] = useState([]);
-  const [weatherDataMap, setWeatherDataMap] = useState({});
+  const [history, sethistory] = useState(() =>
+    JSON.parse(localStorage.getItem("history")) || []);
+
   const [showsearch, setShowSearch] = useState(false);
   const [error, seterror] = useState("");
 
@@ -25,9 +26,9 @@ function App() {
   const [imgloading, setimgloading] = useState(false);
 
 
-  const submitForm = async (e) => {
-    e.preventDefault();
-    const cityName = city;
+  const submitForm = async (e, cityNameArg) => {
+    if (e && e.preventDefault) e.preventDefault();
+    const cityName = cityNameArg || city;
 
     setimgloading(true);
 
@@ -36,13 +37,15 @@ function App() {
       await new Promise((resolve) => setTimeout(resolve, 1000));
       setimgloading(false);
 
-      const getWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=f63770e8dc91b47dd79e9b768b4d4c98&units=metric`);
+      const getWeather = await axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=f63770e8dc91b47dd79e9b768b4d4c98&units=metric`);
       setweather(getWeather.data);
-      setWeatherDataMap((prev) => ({ ...prev, [cityName]: getWeather.data }));
       seterror("");
       setcity("");
+
       if (!history.includes(cityName)) {
-        sethistory((prev) => [...prev, cityName]);
+        const updatedHistory = [...history, cityName];
+        sethistory(updatedHistory);
+        localStorage.setItem("history", JSON.stringify(updatedHistory));
       }
 
       setsearchpopup(true);
@@ -52,23 +55,23 @@ function App() {
     }
 
     catch (e) {
-      setcity("");
       setweather(null);
       seterror(` No City 
         Found - ${cityName}`);
+      setcity("");
+
     }
 
   }
   const handlesearch = (selectedcity) => {
     setShowSearch(false);
-    const citydata = weatherDataMap[selectedcity];
-    if (citydata) {
-      setweather(citydata);
-    }
+    submitForm(null, selectedcity);
   }
 
   const removecity = (citytoremove) => {
-    sethistory(history.filter((c) => c !== citytoremove));
+    const deletecity = history.filter((c) => c!==citytoremove);
+    sethistory(deletecity);
+    localStorage.setItem("history",JSON.stringify(deletecity));
   };
 
   const handlesuccess = async () => {
@@ -162,7 +165,8 @@ function App() {
               <h3>Search History</h3>
               <button className="btn" onClick={() => setShowSearch(false)}>x</button>
             </div>
-            <p className='clear-history' onClick={() => sethistory([])}>clear history</p>
+            <p className='clear-history' onClick={() =>
+            {sethistory([]) ,localStorage.setItem("history","[]")}}>clear history</p>
             {history.length === 0 ? <p className='no-searched-cities global-text'>No search history</p> :
               <ul className='searched-cities global-text'>
                 {history.map((cityName, index) => (
@@ -179,7 +183,7 @@ function App() {
             <input type='text' name='name'
               value={city}
               onChange={(e) => setcity(e.target.value)} placeholder='enter the city...' required />
-            <button type='submit'>weather</button>
+            <button type='submit'>Getweather</button>
           </form>
         </div>
 

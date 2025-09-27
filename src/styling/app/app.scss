@@ -20,13 +20,17 @@ body {
 }
 
 img {
-    width: 30%;
+    width: 27%;
     height: auto;
     border-radius: 50%;
 
+    @include media("sm") {
+        width: 20%;
+    }
     @include media("md") {
         width: 15%;
     }
+    
 }
 
 .pop {
@@ -34,12 +38,21 @@ img {
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
+    width:65%;
     padding: 10px;
     color: white;
+    text-align: center;
     text-transform: capitalize;
     box-shadow: 0px 0px 7px #32d583;
     opacity: 0;
     transition: all .3s ease-in-out;
+
+    @include media("sm"){
+        width:50%;
+    }
+    @include media("md"){
+        width:35%;
+    }
 
 }
 
@@ -221,13 +234,18 @@ img {
 }
 
 .container {
-    padding-top: 95px;
+    padding-top: 80px;
+
+    @include media("sm"){
+        padding-top:95px;
+    }
 
     .search {
+        position: relative;
 
         .icon {
-            text-align: end;
-            padding-right: 20px;
+            position: absolute;
+            right:25px;
 
             i {
                 border-radius: 50%;
@@ -368,11 +386,11 @@ img {
 
     .input-search {
         text-align: center;
-        margin-top: 20px;
+        margin-top: 45px;
 
         input {
-            width: 45%;
-            padding: 13px;
+            width: 53%;
+            padding: 12px;
             border: 1px solid #32d583;
             background-color: black;
             margin-right: 5px;
@@ -382,19 +400,26 @@ img {
             letter-spacing: .5px;
             text-transform: capitalize;
 
-            @media screen and (min-width:768px) {
-                width: 30%;
-            }
+           @include media("sm"){
+            width:40%;
+           }
+            @include media("md"){
+            width:35%;
+           }
+            @include media("lg"){
+            width:30%;
+           }
 
         }
 
         button {
-            padding: 12px;
+            padding: 13px;
             border: none;
             outline: none;
             background: linear-gradient(45deg, #87ceeb, #32d583, #ff6f61);
             border: 1px solid #32d583;
-            font-size: 17px;
+            font-size: 15px;
+            letter-spacing: 1px;
             color: white;
             font-weight: 700;
             text-transform: capitalize;
@@ -414,7 +439,7 @@ img {
         border-radius: 20px;
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        padding: 17px;
         color: white;
         text-align: center;
 

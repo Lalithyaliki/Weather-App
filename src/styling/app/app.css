@@ -17,9 +17,14 @@ body .global-text {
 }
 
 img {
-  width: 30%;
+  width: 27%;
   height: auto;
   border-radius: 50%;
+}
+@media (min-width: 576px) {
+  img {
+    width: 20%;
+  }
 }
 @media (min-width: 768px) {
   img {
@@ -32,12 +37,24 @@ img {
   top: 5%;
   left: 50%;
   transform: translateX(-50%);
+  width: 65%;
   padding: 10px;
   color: white;
+  text-align: center;
   text-transform: capitalize;
   box-shadow: 0px 0px 7px #32d583;
   opacity: 0;
   transition: all 0.3s ease-in-out;
+}
+@media (min-width: 576px) {
+  .pop {
+    width: 50%;
+  }
+}
+@media (min-width: 768px) {
+  .pop {
+    width: 35%;
+  }
 }
 
 .open {
@@ -191,11 +208,19 @@ img {
 }
 
 .container {
-  padding-top: 95px;
+  padding-top: 80px;
+}
+@media (min-width: 576px) {
+  .container {
+    padding-top: 95px;
+  }
+}
+.container .search {
+  position: relative;
 }
 .container .search .icon {
-  text-align: end;
-  padding-right: 20px;
+  position: absolute;
+  right: 25px;
 }
 .container .search .icon i {
   border-radius: 50%;
@@ -318,11 +343,11 @@ img {
 }
 .container .input-search {
   text-align: center;
-  margin-top: 20px;
+  margin-top: 45px;
 }
 .container .input-search input {
-  width: 45%;
-  padding: 13px;
+  width: 53%;
+  padding: 12px;
   border: 1px solid #32d583;
   background-color: black;
   margin-right: 5px;
@@ -332,18 +357,29 @@ img {
   letter-spacing: 0.5px;
   text-transform: capitalize;
 }
-@media screen and (min-width: 768px) {
+@media (min-width: 576px) {
+  .container .input-search input {
+    width: 40%;
+  }
+}
+@media (min-width: 768px) {
+  .container .input-search input {
+    width: 35%;
+  }
+}
+@media (min-width: 1024px) {
   .container .input-search input {
     width: 30%;
   }
 }
 .container .input-search button {
-  padding: 12px;
+  padding: 13px;
   border: none;
   outline: none;
   background: linear-gradient(45deg, #87ceeb, #32d583, #ff6f61);
   border: 1px solid #32d583;
-  font-size: 17px;
+  font-size: 15px;
+  letter-spacing: 1px;
   color: white;
   font-weight: 700;
   text-transform: capitalize;
@@ -359,7 +395,7 @@ img {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  padding: 17px;
   color: white;
   text-align: center;
 }
