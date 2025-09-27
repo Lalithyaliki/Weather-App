@@ -26,6 +26,15 @@ function App() {
   const [imgloading, setimgloading] = useState(false);
 
 
+   useEffect(() => {
+    if (showsearch) {
+      document.body.classList.add("no-scroll");
+    } else {
+      document.body.classList.remove("no-scroll");
+    }
+  }, [showsearch]);
+
+
   const submitForm = async (e, cityNameArg) => {
     if (e && e.preventDefault) e.preventDefault();
     const cityName = cityNameArg || city;

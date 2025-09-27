@@ -10,6 +10,10 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #212121;
 
+    &.no-scroll {
+        overflow: hidden;
+    }
+
 
     .global-text {
         background: linear-gradient(45deg, #87ceeb, #32d583, #ff6f61);
@@ -38,8 +42,8 @@ img {
     top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    width:65%;
-    padding: 10px;
+    width:70%;
+    padding: 7px;
     color: white;
     text-align: center;
     text-transform: capitalize;
@@ -58,7 +62,7 @@ img {
 
 .open {
     opacity: 1;
-    top: 10%;
+    top: 8%;
 }
 
 .logout {
@@ -245,7 +249,8 @@ img {
 
         .icon {
             position: absolute;
-            right:25px;
+            right:20px;
+            top:7px;
 
             i {
                 border-radius: 50%;
@@ -328,7 +333,8 @@ img {
             }
 
             .clear-history {
-                text-align: end;
+                position: absolute;
+                right:15px;
                 text-decoration: underline;
                 padding: 20px 8px;
                 cursor: pointer;
@@ -337,11 +343,13 @@ img {
             }
 
             .no-searched-cities {
+                margin-top: 60px;
                 font-size: 20px;
             }
 
             .searched-cities {
                 list-style-type: none;
+                margin-top: 60px;
 
                 .cities {
                     display: flex;
@@ -386,7 +394,7 @@ img {
 
     .input-search {
         text-align: center;
-        margin-top: 45px;
+        margin-top: 50px;
 
         input {
             width: 53%;
